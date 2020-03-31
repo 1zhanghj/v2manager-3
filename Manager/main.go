@@ -175,6 +175,7 @@ func initConfig(config parseConfig.Config){
     Level = uint32(int(config.Get("Level").(float64)))
     AlterID = uint32(int(config.Get("AlterID").(float64)))
     CheckRate = int(config.Get("CheckRate").(float64))
+    Consumptionratio = int(config.Get("Consumptionratio").(float64))
 }
 
 func Run() error {
