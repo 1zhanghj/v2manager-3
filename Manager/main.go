@@ -139,6 +139,7 @@ func checkConfig(config parseConfig.Config) error{
     CheckItems["AlterID"] = "float64"
     CheckItems["Level"] = "float64"
     CheckItems["CheckRate"] = "float64"
+	
     for k, v := range CheckItems{
         var CheI = config.Get(k)
         if(CheI == nil){
