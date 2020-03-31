@@ -500,7 +500,13 @@ func makeUpdateQueue(umymap map[string]map[string]string){
         var ts = ""
         for k, v := range umymap{
 			uuu, err := strconv.Atoi(v["u"])
+			if err == nil {
+　			　fmt.Printf(“uuu: %v\n”,uuu)
+			}
 			ddd, err := strconv.Atoi(v["d"])
+			if err == nil {
+　　			fmt.Printf(“ddd: %v\n”,ddd)
+			}
             ids = ids + k + ","
             us = us + "WHEN " + v["id"] + " THEN u + " + strconv.Itoa(uuu * Consumptionratio) + "\n"
             ds = ds + "WHEN " + v["id"] + " THEN d + " + strconv.Itoa(ddd * Consumptionratio) + "\n"
