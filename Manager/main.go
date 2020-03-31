@@ -56,6 +56,7 @@ var AlterID uint32
 var Mysql_Server string
 var V2config string
 var CheckRate int
+var Consumptionratio int
 var M2Version = "Beggar - V0.1.3"
 var Mydb *sql.DB
 
@@ -139,7 +140,7 @@ func checkConfig(config parseConfig.Config) error{
     CheckItems["AlterID"] = "float64"
     CheckItems["Level"] = "float64"
     CheckItems["CheckRate"] = "float64"
-	
+	CheckItems["Consumptionratio"] = "float64"
     for k, v := range CheckItems{
         var CheI = config.Get(k)
         if(CheI == nil){
@@ -499,8 +500,8 @@ func makeUpdateQueue(umymap map[string]map[string]string){
         var ts = ""
         for k, v := range umymap{
             ids = ids + k + ","
-            us = us + "WHEN " + v["id"] + " THEN u + " + v["u"] + "\n"
-            ds = ds + "WHEN " + v["id"] + " THEN d + " + v["d"] + "\n"
+            us = us + "WHEN " + v["id"] + " THEN u + " + v["u"] * Consumptionrati + "\n"
+            ds = ds + "WHEN " + v["id"] + " THEN d + " + v["d"] * Consumptionrati + "\n"
             ts = ts + "WHEN " + v["id"] + " THEN " + v["t"] + "\n"
         }
         ids = strings.TrimSuffix(ids, ",")
