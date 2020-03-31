@@ -507,9 +507,12 @@ func makeUpdateQueue(umymap map[string]map[string]string){
             if err == nil {
                 fmt.Printf("ddd: %v\n",ddd)
             }
+            uuu = uuu * Consumptionratio
+            ddd = ddd * Consumptionratio
+            fmt.Printf("ddd: %v\n",ddd)
             ids = ids + k + ","
-            us = us + "WHEN " + v["id"] + " THEN u + " + strconv.Itoa(uuu * Consumptionratio) + "\n"
-            ds = ds + "WHEN " + v["id"] + " THEN d + " + strconv.Itoa(ddd * Consumptionratio) + "\n"
+            us = us + "WHEN " + v["id"] + " THEN u + " + strconv.Itoa(uuu) + "\n"
+            ds = ds + "WHEN " + v["id"] + " THEN d + " + strconv.Itoa(ddd) + "\n"
             ts = ts + "WHEN " + v["id"] + " THEN " + v["t"] + "\n"
         }
         ids = strings.TrimSuffix(ids, ",")
