@@ -56,8 +56,8 @@ var AlterID uint32
 var Mysql_Server string
 var V2config string
 var CheckRate int
-var Consumptionratio int
-var M2Version = "Beggar - V0.1.3"
+var Consumptionratio float64
+var M2Version = "Power by mr kaka && Darya customization"
 var Mydb *sql.DB
 
 var (
